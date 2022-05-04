@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Quiz.css"
 
 
 function Quiz() {
+  const [answers, setAnswers] = useState()
+  
+  // console.log(answers);
+  const handleClickAndChange = ({ target: {name, value} }) => {
+    setAnswers({
+      ...answers,
+      [name]: value,
+    })
+  }
+
     return (
       <form>
         <fieldset>
@@ -11,8 +21,22 @@ function Quiz() {
               <label>
                 Você se considera bom em lógica?
                 <div>
-                  <button type="button" >Não</button>
-                  <button type="button" >Sim</button>
+                  <button
+                    type="button"
+                    name="pergunta1"
+                    value="Sim"
+                    onClick={(e) => handleClickAndChange(e)}
+                  >
+                    Sim
+                  </button>
+                  <button
+                    type="button"
+                    name="pergunta1"
+                    value="Não"
+                    onClick={(e) => handleClickAndChange(e)}
+                  >
+                    Não
+                  </button>
                 </div>
               </label>
             </li>
@@ -20,15 +44,30 @@ function Quiz() {
               <label>
                 Gosta de aprender com desafios?
                 <div>
-                  <button type="button" >Não</button>
-                  <button type="button" >Sim</button>
+                  <button
+                    type="button"
+                    name="pergunta2"
+                    value="Sim"
+                    onClick={(e) => handleClickAndChange(e)}
+                  >
+                    Sim
+                  </button>
+                  <button
+                    type="button"
+                    name="pergunta2"
+                    value="Não"
+                    onClick={(e) => handleClickAndChange(e)}
+                    >
+                    Não
+                  </button>
                 </div>
               </label>
             </li>
             <li>
               <label>
                 Gosta de aprender com desafios?
-                <select required>
+                <select name="pergunta3" onChange={handleClickAndChange} required>
+                  <option></option>
                   <option>Sim</option>
                   <option>Não</option>
                   <option>Não sei</option>
@@ -40,6 +79,8 @@ function Quiz() {
               <label>
                 Por favor, justifique a resposta anterior.
                 <textarea
+                  name="pergunta4"
+                  onChange={handleClickAndChange}
                   cols="30"
                   rows="10"
                   minLength="15"
