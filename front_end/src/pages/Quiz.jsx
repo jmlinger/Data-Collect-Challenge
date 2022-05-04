@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Quiz.css"
+// import "./Quiz.css"
 
 
 function Quiz() {
@@ -65,7 +65,7 @@ function Quiz() {
             </li>
             <li>
               <label>
-                Gosta de aprender com desafios?
+                Gostaria de fazer parte da GRX?
                 <select name="pergunta3" onChange={handleClickAndChange} required>
                   <option></option>
                   <option>Sim</option>
