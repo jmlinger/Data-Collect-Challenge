@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 
 
 function Quiz() {
-  const [answers, setAnswers] = useState()
+  const [answers, setAnswers] = useState({})
   
-  // console.log(answers);
+  // console.log(Object.keys(answers).length);
   const handleClickAndChange = ({ target: {name, value} }) => {
     setAnswers({
       ...answers,
@@ -88,10 +88,11 @@ function Quiz() {
                   resize= "none"
                   required
                 />
+                <p>{`${answers.pergunta4 ? answers.pergunta4.length : 0}/200`}</p>
               </label>
             </li>
           </ol>
-          <button type='submit'>
+          <button type='submit' disabled={Object.keys(answers).length !== 4}>
             Enviar
           </button>
         </fieldset>
