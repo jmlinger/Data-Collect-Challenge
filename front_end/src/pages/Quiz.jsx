@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-// import "./Quiz.css"
-
+import { AnswersContainer, QuestionList } from '../styles/Quiz';
 
 function Quiz() {
   const [answers, setAnswers] = useState({})
   
-  // console.log(Object.keys(answers).length);
+  // console.log(answers);
   const handleClickAndChange = ({ target: {name, value} }) => {
+    
     setAnswers({
       ...answers,
       [name]: value,
@@ -16,56 +16,65 @@ function Quiz() {
     return (
       <form>
         <fieldset>
-          <ol>
+          <QuestionList>
             <li>
-              <label>
+              <p>
                 Você se considera bom em lógica?
-                <div>
-                  <button
-                    type="button"
-                    name="pergunta1"
-                    value="Sim"
-                    onClick={(e) => handleClickAndChange(e)}
-                  >
-                    Sim
-                  </button>
-                  <button
-                    type="button"
-                    name="pergunta1"
-                    value="Não"
-                    onClick={(e) => handleClickAndChange(e)}
-                  >
-                    Não
-                  </button>
-                </div>
-              </label>
+              </p>
+              <AnswersContainer>
+                <input
+                  type="radio"
+                  name="pergunta1"
+                  id='alt1'
+                  value="Sim"
+                  onClick={(e) => handleClickAndChange(e)}
+                />
+                <label htmlFor='alt1'>
+                  Sim
+                </label>
+                <input
+                  type="radio"
+                  name="pergunta1"
+                  id='alt2'
+                  value="Não"
+                  onClick={(e) => handleClickAndChange(e)}
+                />
+                <label htmlFor='alt2'>
+                  Não
+                </label>
+              </AnswersContainer>
             </li>
             <li>
-              <label>
+              <p>
                 Gosta de aprender com desafios?
-                <div>
-                  <button
-                    type="button"
-                    name="pergunta2"
-                    value="Sim"
-                    onClick={(e) => handleClickAndChange(e)}
-                  >
-                    Sim
-                  </button>
-                  <button
-                    type="button"
-                    name="pergunta2"
-                    value="Não"
-                    onClick={(e) => handleClickAndChange(e)}
-                    >
-                    Não
-                  </button>
-                </div>
-              </label>
+              </p>
+              <AnswersContainer>
+                <input
+                  type="radio"
+                  name="pergunta2"
+                  id='alt3'
+                  value="Sim"
+                  onClick={(e) => handleClickAndChange(e)}
+                />
+                <label htmlFor='alt3'>
+                  Sim
+                </label>
+                <input
+                  type="radio"
+                  name="pergunta2"
+                  id='alt4'
+                  value="Não"
+                  onClick={(e) => handleClickAndChange(e)}
+                />
+                <label htmlFor='alt4'>
+                  Não
+                </label>
+              </AnswersContainer>
             </li>
             <li>
-              <label>
+              <p>
                 Gostaria de fazer parte da GRX?
+              </p>
                 <select name="pergunta3" onChange={handleClickAndChange} required>
                   <option></option>
                   <option>Sim</option>
@@ -73,25 +82,24 @@ function Quiz() {
                   <option>Não sei</option>
                   <option>Agora!!</option>
                 </select>
-              </label>
             </li>
             <li>
-              <label>
+              <p>
                 Por favor, justifique a resposta anterior.
-                <textarea
-                  name="pergunta4"
-                  onChange={handleClickAndChange}
-                  cols="30"
-                  rows="10"
-                  minLength="15"
-                  maxLength="200"
-                  resize= "none"
-                  required
-                />
-                <p>{`${answers.pergunta4 ? answers.pergunta4.length : 0}/200`}</p>
-              </label>
+              </p>
+              <textarea
+                name="pergunta4"
+                onChange={handleClickAndChange}
+                cols="30"
+                rows="10"
+                minLength="15"
+                maxLength="200"
+                resize= "none"
+                required
+              />
+              <p>{`${answers.pergunta4 ? answers.pergunta4.length : 0}/200`}</p>
             </li>
-          </ol>
+          </QuestionList>
           <button type='submit' disabled={Object.keys(answers).length !== 4}>
             Enviar
           </button>
