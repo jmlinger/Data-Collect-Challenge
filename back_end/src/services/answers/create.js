@@ -8,10 +8,10 @@ module.exports = async (answers) => {
   const allAnswers = await answersModels.create(answersWithScore);
 
   const totalScore = allAnswers.reduce((acc, cur) => ({
-      QuantidadePositiva: acc.QuantidadePositiva + cur.QuantidadePositiva,
-      QuantidadeNegativa: acc.QuantidadeNegativa + cur.QuantidadeNegativa,
-      QuantidadeNaoAvaliada: acc.QuantidadeNaoAvaliada + cur.QuantidadeNaoAvaliada,
-    }),
+    QuantidadePositiva: acc.QuantidadePositiva + cur.QuantidadePositiva,
+    QuantidadeNegativa: acc.QuantidadeNegativa + cur.QuantidadeNegativa,
+    QuantidadeNaoAvaliada: acc.QuantidadeNaoAvaliada + cur.QuantidadeNaoAvaliada,
+  }),
   {
     QuantidadePositiva: 0,
     QuantidadeNegativa: 0,
