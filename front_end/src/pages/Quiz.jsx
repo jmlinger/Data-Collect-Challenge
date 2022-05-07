@@ -6,8 +6,7 @@ import { sendAnswers } from '../services/apiCalls';
 function Quiz() {
   const [answers, setAnswers] = useState({});
   const [totalScore, setTotalScore] = useState();
-  
-  console.log(totalScore);
+
   const saveAnswers = ({ target: {name, value} }) => {
     setAnswers({
       ...answers,
@@ -17,9 +16,13 @@ function Quiz() {
 
   const sendForms = async () => {
     const response = await sendAnswers(answers);
-    const sortedResponse = Object.entries(response).sort((a, b) => b[1] - a[1]);
-    setTotalScore(sortedResponse);
-    setAnswers({});
+    if (response.error) {
+      console.log(response.error.message);
+    } else {
+      const sortedResponse = Object.entries(response).sort((a, b) => b[1] - a[1]);
+      setTotalScore(sortedResponse);
+      setAnswers({});
+    }
   }
 
   return (
