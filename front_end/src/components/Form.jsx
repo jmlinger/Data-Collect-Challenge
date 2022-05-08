@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { AnswersContainer, ButtonsContainer, FieldBody, FormBody, LabelAnswer, QuestionList, SelectLabel } from '../styles/Quiz';
+import { AnswersContainer, ButtonsContainer, FieldBody, FormBody, LabelAnswer, QuestionsList, SelectLabel } from '../styles/Quiz';
 import { formValidation } from "../utils/formValidations";
 
 function Form(props) {
@@ -8,65 +8,69 @@ function Form(props) {
 
   return (
     <>
-      <FormBody>
-        <FieldBody>
-          <h1>Desafio Coleta - GRX</h1>
-          <QuestionList>
-            <li>
+      <FormBody data-testid="form">
+        <FieldBody data-testid="form-fieldset">
+          <h1 data-testid="form-title">Desafio Coleta - GRX</h1>
+          <QuestionsList data-testid="form-ol">
+            <li data-testid="form-li-pergunta1">
               Você se considera bom em lógica?
               <AnswersContainer>
                 <input
                   type="radio"
                   name="Pergunta1"
-                  id='alt1'
+                  id="alt1"
+                  data-testid="alt1"
                   value="Sim"
                   disabled={totalScore ? true : false}
                   onClick={(e) => saveAnswers(e)}
                 />
-                <LabelAnswer htmlFor='alt1'>
+                <LabelAnswer htmlFor="alt1">
                   Sim
                 </LabelAnswer>
                 <input
                   type="radio"
                   name="Pergunta1"
-                  id='alt2'
+                  id="alt2"
+                  data-testid="alt2"
                   value="Não"
                   disabled={totalScore ? true : false}
                   onClick={(e) => saveAnswers(e)}
                 />
-                <LabelAnswer htmlFor='alt2'>
+                <LabelAnswer htmlFor="alt2">
                   Não
                 </LabelAnswer>
               </AnswersContainer>
             </li>
-            <li>
+            <li data-testid="form-li-pergunta2">
                 Gosta de aprender com desafios?
               <AnswersContainer>
                 <input
                   type="radio"
                   name="Pergunta2"
-                  id='alt3'
+                  id="alt3"
+                  data-testid="alt3"
                   value="Sim"
                   disabled={totalScore ? true : false}
                   onClick={(e) => saveAnswers(e)}
                 />
-                <LabelAnswer htmlFor='alt3'>
+                <LabelAnswer htmlFor="alt3">
                   Sim
                 </LabelAnswer>
                 <input
                   type="radio"
                   name="Pergunta2"
-                  id='alt4'
+                  id="alt4"
+                  data-testid="alt4"
                   value="Não"
                   disabled={totalScore ? true : false}
                   onClick={(e) => saveAnswers(e)}
                 />
-                <LabelAnswer htmlFor='alt4'>
+                <LabelAnswer htmlFor="alt4">
                   Não
                 </LabelAnswer>
               </AnswersContainer>
             </li>
-            <li>
+            <li data-testid="form-li-pergunta3">
               Gostaria de fazer parte da GRX?
               <AnswersContainer>
                 <SelectLabel htmlFor='pergunta3'>
@@ -87,23 +91,23 @@ function Form(props) {
                 </SelectLabel>
               </AnswersContainer>
             </li>
-            <li>
+            <li data-testid="form-li-pergunta4">
                 Por favor, justifique a resposta anterior.
               <AnswersContainer>
                 <textarea
                   name="Pergunta4"
                   minLength="15"
                   maxLength="200"
-                  resize= "none"
                   disabled={totalScore ? true : false}
                   onChange={(e) => saveAnswers(e)}
                 />
               </AnswersContainer>
               <p>{`${answers.Pergunta4 ? answers.Pergunta4.length : 0}/200`}</p>
             </li>
-          </QuestionList>
+          </QuestionsList>
           <ButtonsContainer>
-            <button
+            <button 
+              data-testid="form-sendButton"
               type='button'
               disabled={formValidation(answers).error ? true : false}
               onClick={(e) => sendForms(e)}
@@ -111,6 +115,7 @@ function Form(props) {
               Enviar
             </button>
             <button
+              data-testid="form-AnswerAgainButton"
               type='button'
               hidden={totalScore ? false : true}
               onClick={() => window.location.reload()}

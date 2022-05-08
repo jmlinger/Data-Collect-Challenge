@@ -7,7 +7,7 @@ function Score(props) {
   const answeredQuestions = totalScore.reduce((acc, cur) => acc + cur[1], 0)
 
   return (
-    <ScoreBody>
+    <ScoreBody data-testid="score">
       <h2>Quadro Geral de Respostas</h2>
       <TotalContainer>
         <label htmlFor="total-answers">Total</label>

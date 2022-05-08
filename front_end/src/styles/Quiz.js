@@ -32,7 +32,7 @@ export const FieldBody = styled.fieldset`
   }
 `;
 
-export const QuestionList = styled.ol`
+export const QuestionsList = styled.ol`
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -84,6 +84,7 @@ export const AnswersContainer = styled.div`
     font-size: 20px;
     height: 100px;
     outline: none;
+    resize: none
     text-align: justify;
     width: 400px;
   }
