@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Form from '../components/Form';
 import Score from '../components/Score';
 import { sendAnswers } from '../services/apiCalls';
+import { QuizBody } from '../styles/Quiz';
 
 function Quiz() {
   const [answers, setAnswers] = useState({});
@@ -26,7 +27,7 @@ function Quiz() {
   }
 
   return (
-    <>
+    <QuizBody>
       <Form
         answers={answers}
         saveAnswers={saveAnswers}
@@ -34,7 +35,7 @@ function Quiz() {
         totalScore={totalScore}
       />
       {totalScore && <Score totalScore={totalScore} />}
-    </>
+    </QuizBody>
   );
 }
 
