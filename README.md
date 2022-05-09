@@ -2,7 +2,9 @@
 
 <br>
 
-![](./src/images/tela_inicial.jpg)
+<div align="center">
+	<img src="/images/tela_inicial.jpg" align="center" width="600px" height="400px"/>
+</div>
 
 <br>
 
@@ -78,8 +80,11 @@ $ npm start
 ## Cobertura de testes
 
 Front-end: 88.33%
-![](./src/images/cobertura_testes_front.jpg)
 
+<div align="left">
+	<img src="/images/cobertura_testes_front.jpg" align="center" width="500px" height="300px"/>
+</div>
+<br>
 Back-end: 00.00%
 
 ## Comentários
