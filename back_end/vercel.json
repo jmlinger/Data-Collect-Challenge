@@ -8,6 +8,11 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "methods": ["GET"],
+      "dest": "./src/api/index.js"
+    },
+    {
       "src": "/answers",
       "methods": ["POST"],
       "dest": "./src/api/index.js"
