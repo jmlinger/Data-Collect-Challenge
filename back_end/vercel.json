@@ -9,7 +9,6 @@
   "routes": [
     {
       "src": "/src/api",
-      "methods": ["GET"],
       "dest": "./src/api/index.js"
     },
     {
