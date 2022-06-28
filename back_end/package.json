@@ -2,7 +2,7 @@
   "name": "back_end",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/api/server.js",
+  "main": "./src/api",
   "engines": {
     "node": "14.x"
   },
